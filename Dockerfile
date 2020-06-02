@@ -23,5 +23,6 @@ COPY --from=mod_tile /usr/lib/apache2/modules/mod_tile.so /usr/local/apache2/mod
 
 COPY /config/mod_tile.conf /usr/local/apache2/conf/extra/mod_tile.conf
 COPY /config/renderd.ini /conf/renderd.ini
+RUN echo "ServerName localhost" >> /usr/local/apache2/conf/httpd.conf
 RUN echo "LoadModule tile_module /usr/local/apache2/modules/mod_tile.so" >> /usr/local/apache2/conf/httpd.conf
 RUN echo "Include /usr/local/apache2/conf/extra/mod_tile.conf" >> /usr/local/apache2/conf/httpd.conf
